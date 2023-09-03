@@ -82,7 +82,8 @@ endif
 syn keyword pythonStatement	False None True
 syn keyword pythonStatement	as assert break continue del global
 syn keyword pythonStatement	lambda nonlocal pass return with yield
-syn keyword pythonStatement	class def nextgroup=pythonFunction skipwhite
+syn keyword pythonStatement	def nextgroup=pythonFunction skipwhite
+syn keyword pythonStatement	class  nextgroup=pythonClass skipwhite
 syn keyword pythonConditional	elif else if
 syn keyword pythonConditional	case match
 syn keyword pythonRepeat	for while
@@ -117,6 +118,7 @@ syn match   pythonMatrixMultiply
       \ transparent
 
 syn match   pythonFunction	"\h\w*" display contained
+syn match   pythonClass    	"\h\w*" display contained
 
 syn match   pythonComment	"#.*$" contains=pythonTodo,@Spell
 syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
