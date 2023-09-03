@@ -69,4 +69,7 @@ hi link pythonArg		pythonNumber
 hi pythonOperator ctermfg=208
 hi link pythonAddlOperator	pythonOperator
 
+" OrangeRed foreground, white background
+hi pythonToDo ctermfg=202 ctermbg=15
+
 " vim: sw=2
