@@ -36,9 +36,10 @@ hi link pythonRepeat			pythonInclude
 hi link pythonOperator			pythonInclude
 hi link pythonException			pythonInclude
 hi link pythonFStringCurly		pythonInclude
+hi link pythonConst				pythonInclude
 
 " Purple, Italic
-hi pythonFStringF ctermfg=176 term=italic
+hi pythonFStringF ctermfg=176 cterm=italic
 
 " Blue
 hi pythonBuiltin ctermfg=33
@@ -50,12 +51,12 @@ hi link pythonSelf	pythonBuiltinConst
 hi link pythonCls	pythonBuiltinConst
 
 " Aqua
-hi pythonFunction ctermfg=37
+hi pythonFunction ctermfg=73
 hi link pythonDecorator			pythonFunction
 hi link pythonDecoratorNAme		pythonFunction
 
 " Green
-hi pythonString ctermfg=156
+hi pythonString ctermfg=150
 hi link pythonQuotes	pythonString
 hi link pythonRawString	pythonString
 
