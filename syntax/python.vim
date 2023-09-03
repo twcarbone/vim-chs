@@ -126,10 +126,10 @@ syn keyword pythonTodo		FIXME NOTE NOTES TODO XXX contained
 " Triple-quoted strings can contain doctests.
 syn region  pythonString matchgroup=pythonQuotes
       \ start=+[uU]\=\z(['"]\)+ end="\z1" skip="\\\\\|\\\z1"
-      \ contains=pythonEscape,@Spell
+      \ contains=pythonEscape,pythonFStringCurly,@Spell
 syn region  pythonString matchgroup=pythonTripleQuotes
       \ start=+[uU]\=\z('''\|"""\)+ end="\z1" keepend
-      \ contains=pythonEscape,pythonSpaceError,pythonDoctest,@Spell
+      \ contains=pythonEscape,pythonSpaceError,pythonDoctest,pythonFStringCurly,@Spell
 syn region  pythonRawString matchgroup=pythonQuotes
       \ start=+[uU]\=[rR]\z(['"]\)+ end="\z1" skip="\\\\\|\\\z1"
       \ contains=@Spell
