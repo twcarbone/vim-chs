@@ -11,6 +11,8 @@ if exists("syntax_on")
   syntax reset
 endif
 
+set term=xterm-256color
+
 let colors_name = "chs"
 
 hi Normal ctermfg=255 ctermbg=237
