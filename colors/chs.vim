@@ -53,12 +53,12 @@ hi link pythonSelf	pythonBuiltinConst
 hi link pythonCls	pythonBuiltinConst
 
 " Aqua
-hi pythonFunction ctermfg=73
+hi pythonFunction ctermfg=37
 hi link pythonDecorator			pythonFunction
 hi link pythonDecoratorNAme		pythonFunction
 
 " Green
-hi pythonString ctermfg=150
+hi pythonString ctermfg=156
 hi link pythonQuotes	pythonString
 hi link pythonRawString	pythonString
 
