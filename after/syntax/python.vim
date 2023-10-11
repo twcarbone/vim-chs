@@ -9,11 +9,13 @@ syn match pythonFStringF "\m\zs[fr]\ze\""
 syn match pythonFStringCurly "\v\zs\{\w+\}\ze" contained contains=pythonFStringInner
 syn match pythonFStringInner "\v\{\zs\w+\ze\}"
 
-syn match pythonArg "\v\zs\w+\ze\="
-syn match pythonParen "\v[\(\)\{\}\[\]]"
-
-syn match pythonAddlOperator "\v[\=\+\*\-\/\\\|]"
-
 syn match pythonDot "\v[\.\:\,]"
 syn match pythonArrow " -> "
+
+syn match pythonArg "\v\zs\w+\ze\="
+syn match pythonAddlOperator "\v[\=\+\*\-\/\\\|]"
+
+syn match pythonParen "\v[\(\)\{\}\[\]]"
+
+
 
