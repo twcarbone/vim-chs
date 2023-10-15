@@ -74,4 +74,7 @@ hi link pythonAddlOperator	pythonOperator
 " OrangeRed foreground, white background
 hi pythonToDo ctermfg=202 ctermbg=15
 
+" Search highlighting
+hi Search ctermfg=black ctermbg=yellow
+
 " vim: sw=2
