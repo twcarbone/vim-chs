@@ -106,7 +106,7 @@ let s:colors = {
       \ "foreground": get(s:overrides, "foreground", { "gui": "#eeeeee", "cterm": "255", "cterm16": "NONE" }),
       \ "background": get(s:overrides, "background", { "gui": "#303030", "cterm": "236", "cterm16": "NONE" }),
       \ "comment_grey": get(s:overrides, "comment_grey", { "gui": "#5C6370", "cterm": "59", "cterm16": "7" }),
-      \ "gutter_fg_grey": get(s:overrides, "gutter_fg_grey", { "gui": "#4B5263", "cterm": "238", "cterm16": "8" }),
+      \ "golden_rod": get(s:overrides, "golden_rod", { "gui": "#ffd75f", "cterm": "221", "cterm16": "8" }),
       \ "cursor_grey": get(s:overrides, "cursor_grey", { "gui": "#2C323C", "cterm": "236", "cterm16": "0" }),
       \ "visual_grey": get(s:overrides, "visual_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "8" }),
       \ "menu_grey": get(s:overrides, "menu_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "7" }),
@@ -127,7 +127,7 @@ let s:black = s:colors.black
 let s:foreground = s:colors.foreground
 let s:background = s:colors.background
 let s:comment_grey = s:colors.comment_grey
-let s:gutter_fg_grey = s:colors.gutter_fg_grey
+let s:golden_rod = s:colors.golden_rod
 let s:cursor_grey = s:colors.cursor_grey
 let s:visual_grey = s:colors.visual_grey
 let s:menu_grey = s:colors.menu_grey
@@ -233,7 +233,7 @@ call s:h("Folded", { "fg": s:comment_grey }) " line used for closed folds
 call s:h("FoldColumn", {}) " 'foldcolumn'
 call s:h("SignColumn", {}) " column where signs are displayed
 call s:h("IncSearch", { "fg": s:yellow, "bg": s:comment_grey }) " 'incsearch' highlighting; also used for the text replaced with ":s///c"
-call s:h("LineNr", { "fg": s:gutter_fg_grey }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+call s:h("LineNr", { "fg": s:golden_rod }) " Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
 call s:h("CursorLineNr", {}) " Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
 call s:h("MatchParen", { "fg": s:blue, "gui": "underline", "cterm": "underline" }) " The character under the cursor or just before it, if it is a paired bracket, and its match.
 call s:h("ModeMsg", {}) " 'showmode' message (e.g., "-- INSERT --")
