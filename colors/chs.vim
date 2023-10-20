@@ -98,6 +98,7 @@ let s:colors = {
       \ "green": get(s:overrides, "green", { "gui": "#98C379", "cterm": "114", "cterm16": "2" }),
       \ "yellow": get(s:overrides, "yellow", { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" }),
       \ "orange": get(s:overrides, "orange", { "gui": "#ffaf5f", "cterm": "215", "cterm16": "11" }),
+      \ "dark_orange": get(s:overrides, "dark_orange", { "gui": "#ff8700", "cterm": "208", "cterm16": "11" }),
       \ "blue": get(s:overrides, "blue", { "gui": "#00a5ff", "cterm": "33", "cterm16": "4" }),
       \ "purple": get(s:overrides, "purple", { "gui": "#d787d7", "cterm": "176", "cterm16": "5" }),
       \ "cyan": get(s:overrides, "cyan", { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" }),
@@ -119,6 +120,7 @@ let s:dark_red = s:colors.dark_red
 let s:green = s:colors.green
 let s:yellow = s:colors.yellow
 let s:orange = s:colors.orange
+let s:dark_orange = s:colors.dark_orange
 let s:blue = s:colors.blue
 let s:purple = s:colors.purple
 let s:cyan = s:colors.cyan
