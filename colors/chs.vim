@@ -97,7 +97,7 @@ let s:colors = {
       \ "dark_red": get(s:overrides, "dark_red", { "gui": "#BE5046", "cterm": "196", "cterm16": "9" }),
       \ "green": get(s:overrides, "green", { "gui": "#98C379", "cterm": "114", "cterm16": "2" }),
       \ "yellow": get(s:overrides, "yellow", { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" }),
-      \ "dark_yellow": get(s:overrides, "dark_yellow", { "gui": "#D19A66", "cterm": "173", "cterm16": "11" }),
+      \ "orange": get(s:overrides, "orange", { "gui": "#ffaf5f", "cterm": "215", "cterm16": "11" }),
       \ "blue": get(s:overrides, "blue", { "gui": "#00a5ff", "cterm": "33", "cterm16": "4" }),
       \ "purple": get(s:overrides, "purple", { "gui": "#d787d7", "cterm": "176", "cterm16": "5" }),
       \ "cyan": get(s:overrides, "cyan", { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" }),
@@ -118,7 +118,7 @@ let s:red = s:colors.red
 let s:dark_red = s:colors.dark_red
 let s:green = s:colors.green
 let s:yellow = s:colors.yellow
-let s:dark_yellow = s:colors.dark_yellow
+let s:orange = s:colors.orange
 let s:blue = s:colors.blue
 let s:purple = s:colors.purple
 let s:cyan = s:colors.cyan
@@ -172,9 +172,9 @@ call s:h("Comment", { "fg": s:charcoal, "gui": "italic", "cterm": "italic" }) " 
 call s:h("Constant", { "fg": s:cyan }) " any constant
 call s:h("String", { "fg": s:green }) " a string constant: "this is a string"
 call s:h("Character", { "fg": s:green }) " a character constant: 'c', '\n'
-call s:h("Number", { "fg": s:dark_yellow }) " a number constant: 234, 0xff
-call s:h("Boolean", { "fg": s:dark_yellow }) " a boolean constant: TRUE, false
-call s:h("Float", { "fg": s:dark_yellow }) " a floating point constant: 2.3e10
+call s:h("Number", { "fg": s:orange }) " a number constant: 234, 0xff
+call s:h("Boolean", { "fg": s:orange }) " a boolean constant: TRUE, false
+call s:h("Float", { "fg": s:orange }) " a floating point constant: 2.3e10
 call s:h("Identifier", { "fg": s:red }) " any variable name
 call s:h("Function", { "fg": s:blue }) " function name (also: methods for classes)
 call s:h("Statement", { "fg": s:purple }) " any statement
@@ -194,7 +194,7 @@ call s:h("StorageClass", { "fg": s:yellow }) " static, register, volatile, etc.
 call s:h("Structure", { "fg": s:yellow }) " struct, union, enum, etc.
 call s:h("Typedef", { "fg": s:yellow }) " A typedef
 call s:h("Special", { "fg": s:blue }) " any special symbol
-call s:h("SpecialChar", { "fg": s:dark_yellow }) " special character in a constant
+call s:h("SpecialChar", { "fg": s:orange }) " special character in a constant
 call s:h("Tag", {}) " you can use CTRL-] on this
 call s:h("Delimiter", {}) " character that needs attention
 call s:h("SpecialComment", { "fg": s:charcoal }) " special things inside a comment
@@ -249,9 +249,9 @@ call s:h("QuickFixLine", { "fg": s:black, "bg": s:yellow }) " Current quickfix i
 call s:h("Search", { "fg": s:black, "bg": s:yellow }) " Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 call s:h("SpecialKey", { "fg": s:special_grey }) " Meta and special keys listed with ":map", also for text used to show unprintable characters in the text, 'listchars'. Generally: text that is displayed differently from what it really is.
 call s:h("SpellBad", { "fg": s:red, "gui": "underline", "cterm": "underline" }) " Word that is not recognized by the spellchecker. This will be combined with the highlighting used otherwise.
-call s:h("SpellCap", { "fg": s:dark_yellow }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
-call s:h("SpellLocal", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
-call s:h("SpellRare", { "fg": s:dark_yellow }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
+call s:h("SpellCap", { "fg": s:orange }) " Word that should start with a capital. This will be combined with the highlighting used otherwise.
+call s:h("SpellLocal", { "fg": s:orange }) " Word that is recognized by the spellchecker as one that is used in another region. This will be combined with the highlighting used otherwise.
+call s:h("SpellRare", { "fg": s:orange }) " Word that is recognized by the spellchecker as one that is hardly ever used. spell This will be combined with the highlighting used otherwise.
 call s:h("StatusLine", { "fg": s:white, "bg": s:cursor_grey }) " status line of current window
 call s:h("StatusLineNC", { "fg": s:charcoal }) " status lines of not-current windows Note: if this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
 call s:h("StatusLineTerm", { "fg": s:white, "bg": s:cursor_grey }) " status line of current :terminal window
@@ -282,19 +282,19 @@ call s:h("debugBreakpoint", { "fg": s:black, "bg": s:red }) " a breakpoint
 call s:h("cssAttrComma", { "fg": s:purple })
 call s:h("cssAttributeSelector", { "fg": s:green })
 call s:h("cssBraces", { "fg": s:white })
-call s:h("cssClassName", { "fg": s:dark_yellow })
-call s:h("cssClassNameDot", { "fg": s:dark_yellow })
+call s:h("cssClassName", { "fg": s:orange })
+call s:h("cssClassNameDot", { "fg": s:orange })
 call s:h("cssDefinition", { "fg": s:purple })
-call s:h("cssFontAttr", { "fg": s:dark_yellow })
+call s:h("cssFontAttr", { "fg": s:orange })
 call s:h("cssFontDescriptor", { "fg": s:purple })
 call s:h("cssFunctionName", { "fg": s:blue })
 call s:h("cssIdentifier", { "fg": s:blue })
 call s:h("cssImportant", { "fg": s:purple })
 call s:h("cssInclude", { "fg": s:white })
 call s:h("cssIncludeKeyword", { "fg": s:purple })
-call s:h("cssMediaType", { "fg": s:dark_yellow })
+call s:h("cssMediaType", { "fg": s:orange })
 call s:h("cssProp", { "fg": s:white })
-call s:h("cssPseudoClassId", { "fg": s:dark_yellow })
+call s:h("cssPseudoClassId", { "fg": s:orange })
 call s:h("cssSelectorOp", { "fg": s:purple })
 call s:h("cssSelectorOp2", { "fg": s:purple })
 call s:h("cssTagName", { "fg": s:red })
@@ -317,8 +317,8 @@ call s:h("goDeclType", { "fg": s:cyan })
 call s:h("goTypeDecl", { "fg": s:purple })
 
 " HTML (keep consistent with Markdown, below)
-call s:h("htmlArg", { "fg": s:dark_yellow })
-call s:h("htmlBold", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
+call s:h("htmlArg", { "fg": s:orange })
+call s:h("htmlBold", { "fg": s:orange, "gui": "bold", "cterm": "bold" })
 call s:h("htmlBoldItalic", { "fg": s:green, "gui": "bold,italic", "cterm": "bold,italic" })
 call s:h("htmlEndTag", { "fg": s:white })
 call s:h("htmlH1", { "fg": s:red })
@@ -329,7 +329,7 @@ call s:h("htmlH5", { "fg": s:red })
 call s:h("htmlH6", { "fg": s:red })
 call s:h("htmlItalic", { "fg": s:purple, "gui": "italic", "cterm": "italic" })
 call s:h("htmlLink", { "fg": s:cyan, "gui": "underline", "cterm": "underline" })
-call s:h("htmlSpecialChar", { "fg": s:dark_yellow })
+call s:h("htmlSpecialChar", { "fg": s:orange })
 call s:h("htmlSpecialTagName", { "fg": s:red })
 call s:h("htmlTag", { "fg": s:white })
 call s:h("htmlTagN", { "fg": s:red })
@@ -340,8 +340,8 @@ call s:h("htmlTitle", { "fg": s:white })
 call s:h("javaScriptBraces", { "fg": s:white })
 call s:h("javaScriptFunction", { "fg": s:purple })
 call s:h("javaScriptIdentifier", { "fg": s:purple })
-call s:h("javaScriptNull", { "fg": s:dark_yellow })
-call s:h("javaScriptNumber", { "fg": s:dark_yellow })
+call s:h("javaScriptNull", { "fg": s:orange })
+call s:h("javaScriptNumber", { "fg": s:orange })
 call s:h("javaScriptRequire", { "fg": s:cyan })
 call s:h("javaScriptReserved", { "fg": s:purple })
 " https://github.com/pangloss/vim-javascript
@@ -362,14 +362,14 @@ call s:h("jsImport", { "fg": s:purple })
 call s:h("jsModuleAs", { "fg": s:purple })
 call s:h("jsModuleWords", { "fg": s:purple })
 call s:h("jsModules", { "fg": s:purple })
-call s:h("jsNull", { "fg": s:dark_yellow })
+call s:h("jsNull", { "fg": s:orange })
 call s:h("jsOperator", { "fg": s:purple })
 call s:h("jsStorageClass", { "fg": s:purple })
 call s:h("jsSuper", { "fg": s:red })
 call s:h("jsTemplateBraces", { "fg": s:dark_red })
 call s:h("jsTemplateVar", { "fg": s:green })
 call s:h("jsThis", { "fg": s:red })
-call s:h("jsUndefined", { "fg": s:dark_yellow })
+call s:h("jsUndefined", { "fg": s:orange })
 " https://github.com/othree/yajs.vim
 call s:h("javascriptArrowFunc", { "fg": s:purple })
 call s:h("javascriptClassExtends", { "fg": s:purple })
@@ -394,8 +394,8 @@ call s:h("javascriptVariable", { "fg": s:purple })
 " JSON
 call s:h("jsonCommentError", { "fg": s:white })
 call s:h("jsonKeyword", { "fg": s:red })
-call s:h("jsonBoolean", { "fg": s:dark_yellow })
-call s:h("jsonNumber", { "fg": s:dark_yellow })
+call s:h("jsonBoolean", { "fg": s:orange })
+call s:h("jsonNumber", { "fg": s:orange })
 call s:h("jsonQuote", { "fg": s:white })
 call s:h("jsonMissingCommaError", { "fg": s:red, "gui": "reverse" })
 call s:h("jsonNoQuotesError", { "fg": s:red, "gui": "reverse" })
@@ -407,11 +407,11 @@ call s:h("jsonSemicolonError", { "fg": s:red, "gui": "reverse" })
 " LESS
 call s:h("lessVariable", { "fg": s:purple })
 call s:h("lessAmpersandChar", { "fg": s:white })
-call s:h("lessClass", { "fg": s:dark_yellow })
+call s:h("lessClass", { "fg": s:orange })
 
 " Markdown (keep consistent with HTML, above)
 call s:h("markdownBlockquote", { "fg": s:charcoal })
-call s:h("markdownBold", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
+call s:h("markdownBold", { "fg": s:orange, "gui": "bold", "cterm": "bold" })
 call s:h("markdownBoldItalic", { "fg": s:green, "gui": "bold,italic", "cterm": "bold,italic" })
 call s:h("markdownCode", { "fg": s:green })
 call s:h("markdownCodeBlock", { "fg": s:green })
@@ -442,7 +442,7 @@ call s:h("perlMatchStartEnd",{ "fg": s:blue })
 call s:h("perlMethod", { "fg": s:purple })
 call s:h("perlPOD", { "fg": s:charcoal })
 call s:h("perlSharpBang", { "fg": s:charcoal })
-call s:h("perlSpecialString",{ "fg": s:dark_yellow })
+call s:h("perlSpecialString",{ "fg": s:orange })
 call s:h("perlStatementFiledesc", { "fg": s:red })
 call s:h("perlStatementFlow",{ "fg": s:red })
 call s:h("perlStatementInclude", { "fg": s:purple })
@@ -466,10 +466,10 @@ call s:h("phpClassExtends", { "fg": s:green })
 call s:h("phpDocTags", { "fg": s:white })
 call s:h("phpFunction", { "fg": s:blue })
 call s:h("phpFunctions", { "fg": s:cyan })
-call s:h("phpMethodsVar", { "fg": s:dark_yellow })
-call s:h("phpMagicConstants", { "fg": s:dark_yellow })
+call s:h("phpMethodsVar", { "fg": s:orange })
+call s:h("phpMagicConstants", { "fg": s:orange })
 call s:h("phpSuperglobals", { "fg": s:red })
-call s:h("phpConstants", { "fg": s:dark_yellow })
+call s:h("phpConstants", { "fg": s:orange })
 
 " Ruby
 call s:h("rubyBlockParameter", { "fg": s:red})
@@ -494,7 +494,7 @@ call s:h("rubySymbol", { "fg": s:cyan})
 " Sass
 " https://github.com/tpope/vim-haml
 call s:h("sassAmpersand", { "fg": s:red })
-call s:h("sassClass", { "fg": s:dark_yellow })
+call s:h("sassClass", { "fg": s:orange })
 call s:h("sassControl", { "fg": s:purple })
 call s:h("sassExtend", { "fg": s:purple })
 call s:h("sassFor", { "fg": s:white })
@@ -512,20 +512,20 @@ call s:h("scssExtend", { "fg": s:purple })
 call s:h("scssImport", { "fg": s:purple })
 call s:h("scssInclude", { "fg": s:purple })
 call s:h("scssMixin", { "fg": s:purple })
-call s:h("scssSelectorName", { "fg": s:dark_yellow })
+call s:h("scssSelectorName", { "fg": s:orange })
 call s:h("scssVariable", { "fg": s:purple })
 
 " TeX
 call s:h("texStatement", { "fg": s:purple })
-call s:h("texSubscripts", { "fg": s:dark_yellow })
-call s:h("texSuperscripts", { "fg": s:dark_yellow })
+call s:h("texSubscripts", { "fg": s:orange })
+call s:h("texSuperscripts", { "fg": s:orange })
 call s:h("texTodo", { "fg": s:dark_red })
 call s:h("texBeginEnd", { "fg": s:purple })
 call s:h("texBeginEndName", { "fg": s:blue })
 call s:h("texMathMatcher", { "fg": s:blue })
 call s:h("texMathDelim", { "fg": s:blue })
-call s:h("texDelimiter", { "fg": s:dark_yellow })
-call s:h("texSpecialChar", { "fg": s:dark_yellow })
+call s:h("texDelimiter", { "fg": s:orange })
+call s:h("texSpecialChar", { "fg": s:orange })
 call s:h("texCite", { "fg": s:blue })
 call s:h("texRefZone", { "fg": s:blue })
 
@@ -535,7 +535,7 @@ call s:h("typescriptEndColons", { "fg": s:white })
 call s:h("typescriptBraces", { "fg": s:white })
 
 " XML
-call s:h("xmlAttrib", { "fg": s:dark_yellow })
+call s:h("xmlAttrib", { "fg": s:orange })
 call s:h("xmlEndTag", { "fg": s:red })
 call s:h("xmlTag", { "fg": s:red })
 call s:h("xmlTagName", { "fg": s:red })
@@ -560,7 +560,7 @@ call s:h("ALEInfoSign", { })
 " easymotion/vim-easymotion
 call s:h("EasyMotionTarget", { "fg": s:red, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionTarget2First", { "fg": s:yellow, "gui": "bold", "cterm": "bold" })
-call s:h("EasyMotionTarget2Second", { "fg": s:dark_yellow, "gui": "bold", "cterm": "bold" })
+call s:h("EasyMotionTarget2Second", { "fg": s:orange, "gui": "bold", "cterm": "bold" })
 call s:h("EasyMotionShade",  { "fg": s:charcoal })
 
 " lewis6991/gitsigns.nvim
@@ -649,7 +649,7 @@ if has("nvim")
   let g:terminal_color_8 =  s:visual_grey.gui
   let g:terminal_color_9 =  s:dark_red.gui
   let g:terminal_color_10 = s:green.gui " No dark version
-  let g:terminal_color_11 = s:dark_yellow.gui
+  let g:terminal_color_11 = s:orange.gui
   let g:terminal_color_12 = s:blue.gui " No dark version
   let g:terminal_color_13 = s:purple.gui " No dark version
   let g:terminal_color_14 = s:cyan.gui " No dark version
