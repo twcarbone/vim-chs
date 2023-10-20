@@ -63,7 +63,7 @@ endfunction
 let s:colors = {
       \ "red": { "gui": "#E06C75", "cterm": "204", "cterm16": "1" },
       \ "dark_red": { "gui": "#BE5046", "cterm": "196", "cterm16": "9" },
-      \ "green": { "gui": "#98C379", "cterm": "114", "cterm16": "2" },
+      \ "green": { "gui": "#afd787", "cterm": "150", "cterm16": "2" },
       \ "yellow": { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" },
       \ "orange": { "gui": "#ffaf5f", "cterm": "215", "cterm16": "11" },
       \ "dark_orange": { "gui": "#ff8700", "cterm": "208", "cterm16": "11" },
