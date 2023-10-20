@@ -26,26 +26,8 @@ if !exists("g:chs_terminal_italics")
   let g:chs_terminal_italics = 0
 endif
 
-let s:group_colors = {} " Cache of default highlight group settings, for later reference via `chs#extend_highlight`
 function! s:h(group, style, ...)
-  if (a:0 > 0) " Will be true if we got here from chs#extend_highlight
-    let s:highlight = s:group_colors[a:group]
-    for style_type in ["fg", "bg", "sp"]
-      if (has_key(a:style, style_type))
-        let l:default_style = (has_key(s:highlight, style_type) ? copy(s:highlight[style_type]) : { "cterm16": "NONE", "cterm": "NONE", "gui": "NONE" })
-        let s:highlight[style_type] = extend(l:default_style, a:style[style_type])
-      endif
-    endfor
-    if (has_key(a:style, "gui"))
-      let s:highlight.gui = a:style.gui
-    endif
-    if (has_key(a:style, "cterm"))
-      let s:highlight.cterm = a:style.cterm
-    endif
-  else
-    let s:highlight = a:style
-    let s:group_colors[a:group] = s:highlight " Cache default highlight group settings
-  endif
+  let s:highlight = a:style
 
   if g:chs_terminal_italics == 0
     if has_key(s:highlight, "cterm") && s:highlight["cterm"] == "italic"
@@ -73,18 +55,6 @@ function! s:h(group, style, ...)
     \ "ctermbg=" . l:ctermbg
     \ "cterm="   (has_key(s:highlight, "cterm") ? s:highlight.cterm    : "NONE")
 endfunction
-
-" public {{{
-
-function! chs#set_highlight(group, style)
-  call s:h(a:group, a:style)
-endfunction
-
-function! chs#extend_highlight(group, style)
-  call s:h(a:group, a:style, 1)
-endfunction
-
-" }}}
 
 " }}}
 
