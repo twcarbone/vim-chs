@@ -1,48 +1,7 @@
 " vim:fdm=marker
 " Vim Color File
-" Name:       onedark.vim
-" Maintainer: https://github.com/joshdick/onedark.vim/
-" License:    The MIT License (MIT)
-" Based On:   https://github.com/MaxSt/FlatColor/
-
-" Companion statusline plugin and terminal themes are included with onedark.vim:
-"  * https://github.com/joshdick/onedark.vim#lightlinevim-colorscheme
-"  * https://github.com/joshdick/onedark.vim#vim-airline-theme
-"  * https://github.com/joshdick/onedark.vim/tree/main/term
-
-" Color Reference {{{
-
-" The following colors were measured inside Atom using its built-in inspector.
-
-" +---------------------------------------------+
-" |  Color Name  |         RGB        |   Hex   |
-" |--------------+--------------------+---------|
-" | Black        | rgb(40, 44, 52)    | #282c34 |
-" |--------------+--------------------+---------|
-" | White        | rgb(171, 178, 191) | #abb2bf |
-" |--------------+--------------------+---------|
-" | Light Red    | rgb(224, 108, 117) | #e06c75 |
-" |--------------+--------------------+---------|
-" | Dark Red     | rgb(190, 80, 70)   | #be5046 |
-" |--------------+--------------------+---------|
-" | Green        | rgb(152, 195, 121) | #98c379 |
-" |--------------+--------------------+---------|
-" | Light Yellow | rgb(229, 192, 123) | #e5c07b |
-" |--------------+--------------------+---------|
-" | Dark Yellow  | rgb(209, 154, 102) | #d19a66 |
-" |--------------+--------------------+---------|
-" | Blue         | rgb(97, 175, 239)  | #61afef |
-" |--------------+--------------------+---------|
-" | Magenta      | rgb(198, 120, 221) | #c678dd |
-" |--------------+--------------------+---------|
-" | Cyan         | rgb(86, 182, 194)  | #56b6c2 |
-" |--------------+--------------------+---------|
-" | Gutter Grey  | rgb(76, 82, 99)    | #4b5263 |
-" |--------------+--------------------+---------|
-" | Comment Grey | rgb(92, 99, 112)   | #5c6370 |
-" +---------------------------------------------+
-
-" }}}
+" Name:       chs.vim
+" Maintainer: https://github.com/twcarbone/chs.vim
 
 " Initialization {{{
 
@@ -54,27 +13,22 @@ endif
 
 set t_Co=256
 
-let g:colors_name="onedark"
+let g:colors_name="chs"
 
 " Set to "256" for 256-color terminals, or
 " set to "16" to use your terminal emulator's native colors
-" (a 16-color palette for this color scheme is available; see
-" < https://github.com/joshdick/onedark.vim/blob/main/README.md >
-" for more information.)
-if !exists("g:onedark_termcolors")
-  let g:onedark_termcolors = 256
+if !exists("g:chs_termcolors")
+  let g:chs_termcolors = 256
 endif
 
 " Not all terminals support italics properly. If yours does, opt-in.
-if !exists("g:onedark_terminal_italics")
-  let g:onedark_terminal_italics = 0
+if !exists("g:chs_terminal_italics")
+  let g:chs_terminal_italics = 0
 endif
 
-" This function is based on one from FlatColor: https://github.com/MaxSt/FlatColor/
-" Which in turn was based on one found in hemisu: https://github.com/noahfrederick/vim-hemisu/
-let s:group_colors = {} " Cache of default highlight group settings, for later reference via `onedark#extend_highlight`
+let s:group_colors = {} " Cache of default highlight group settings, for later reference via `chs#extend_highlight`
 function! s:h(group, style, ...)
-  if (a:0 > 0) " Will be true if we got here from onedark#extend_highlight
+  if (a:0 > 0) " Will be true if we got here from chs#extend_highlight
     let s:highlight = s:group_colors[a:group]
     for style_type in ["fg", "bg", "sp"]
       if (has_key(a:style, style_type))
@@ -93,7 +47,7 @@ function! s:h(group, style, ...)
     let s:group_colors[a:group] = s:highlight " Cache default highlight group settings
   endif
 
-  if g:onedark_terminal_italics == 0
+  if g:chs_terminal_italics == 0
     if has_key(s:highlight, "cterm") && s:highlight["cterm"] == "italic"
       unlet s:highlight.cterm
     endif
@@ -102,7 +56,7 @@ function! s:h(group, style, ...)
     endif
   endif
 
-  if g:onedark_termcolors == 16
+  if g:chs_termcolors == 16
     let l:ctermfg = (has_key(s:highlight, "fg") ? s:highlight.fg.cterm16 : "NONE")
     let l:ctermbg = (has_key(s:highlight, "bg") ? s:highlight.bg.cterm16 : "NONE")
   else
@@ -122,11 +76,11 @@ endfunction
 
 " public {{{
 
-function! onedark#set_highlight(group, style)
+function! chs#set_highlight(group, style)
   call s:h(a:group, a:style)
 endfunction
 
-function! onedark#extend_highlight(group, style)
+function! chs#extend_highlight(group, style)
   call s:h(a:group, a:style, 1)
 endfunction
 
@@ -136,7 +90,29 @@ endfunction
 
 " Color Variables {{{
 
-let s:colors = onedark#GetColors()
+let s:overrides = get(g:, "chs_color_overrides", {})
+
+let s:colors = {
+      \ "red": get(s:overrides, "red", { "gui": "#E06C75", "cterm": "204", "cterm16": "1" }),
+      \ "dark_red": get(s:overrides, "dark_red", { "gui": "#BE5046", "cterm": "196", "cterm16": "9" }),
+      \ "green": get(s:overrides, "green", { "gui": "#98C379", "cterm": "114", "cterm16": "2" }),
+      \ "yellow": get(s:overrides, "yellow", { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" }),
+      \ "dark_yellow": get(s:overrides, "dark_yellow", { "gui": "#D19A66", "cterm": "173", "cterm16": "11" }),
+      \ "blue": get(s:overrides, "blue", { "gui": "#61AFEF", "cterm": "39", "cterm16": "4" }),
+      \ "purple": get(s:overrides, "purple", { "gui": "#C678DD", "cterm": "170", "cterm16": "5" }),
+      \ "cyan": get(s:overrides, "cyan", { "gui": "#56B6C2", "cterm": "38", "cterm16": "6" }),
+      \ "white": get(s:overrides, "white", { "gui": "#ABB2BF", "cterm": "145", "cterm16": "15" }),
+      \ "black": get(s:overrides, "black", { "gui": "#282C34", "cterm": "235", "cterm16": "0" }),
+      \ "foreground": get(s:overrides, "foreground", { "gui": "#ABB2BF", "cterm": "145", "cterm16": "NONE" }),
+      \ "background": get(s:overrides, "background", { "gui": "#282C34", "cterm": "235", "cterm16": "NONE" }),
+      \ "comment_grey": get(s:overrides, "comment_grey", { "gui": "#5C6370", "cterm": "59", "cterm16": "7" }),
+      \ "gutter_fg_grey": get(s:overrides, "gutter_fg_grey", { "gui": "#4B5263", "cterm": "238", "cterm16": "8" }),
+      \ "cursor_grey": get(s:overrides, "cursor_grey", { "gui": "#2C323C", "cterm": "236", "cterm16": "0" }),
+      \ "visual_grey": get(s:overrides, "visual_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "8" }),
+      \ "menu_grey": get(s:overrides, "menu_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "7" }),
+      \ "special_grey": get(s:overrides, "special_grey", { "gui": "#3B4048", "cterm": "238", "cterm16": "7" }),
+      \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#3E4452", "cterm": "59", "cterm16": "7" }),
+      \}
 
 let s:red = s:colors.red
 let s:dark_red = s:colors.dark_red
@@ -247,7 +223,7 @@ call s:h("DiffAdd", { "bg": s:green, "fg": s:black }) " diff mode: Added line
 call s:h("DiffChange", { "fg": s:yellow, "gui": "underline", "cterm": "underline" }) " diff mode: Changed line
 call s:h("DiffDelete", { "bg": s:red, "fg": s:black }) " diff mode: Deleted line
 call s:h("DiffText", { "bg": s:yellow, "fg": s:black }) " diff mode: Changed text within a changed line
-if get(g:, 'onedark_hide_endofbuffer', 0)
+if get(g:, 'chs_hide_endofbuffer', 0)
     " If enabled, will style end-of-buffer filler lines (~) to appear to be hidden.
     call s:h("EndOfBuffer", { "fg": s:black }) " filler lines (~) after the last line in the buffer
 endif
@@ -603,7 +579,6 @@ call s:h("CocWarningSign", { "fg": s:yellow })
 call s:h("CocInfoSign", { "fg": s:blue })
 call s:h("CocHintSign", { "fg": s:cyan })
 call s:h("CocFadeOut", { "fg": s:comment_grey })
-" https://github.com/joshdick/onedark.vim/issues/313
 highlight! link CocMenuSel PmenuSel
 
 " neomake/neomake
