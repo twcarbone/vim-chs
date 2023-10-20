@@ -1,13 +1,19 @@
+THIS_IS_A_CONST_2 = "a"
+_THIS_IS_ANOTHER_CONST = "b"
+
+
 class Foo:
     """
-    This is a docstring.
+    This is a docstring with a asdasdf typo.
     """
 
     def __init__(self, a, b):
         self.a = a
         self.b = b
 
-    def do_something_cool(self):
+        self.t = True
+
+    def do_something_cool(self) -> None:
         try:
             for i in [1, 2, 3]:
                 print(i)
