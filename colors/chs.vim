@@ -60,29 +60,27 @@ endfunction
 
 " Color Variables {{{
 
-let s:overrides = get(g:, "chs_color_overrides", {})
-
 let s:colors = {
-      \ "red": get(s:overrides, "red", { "gui": "#E06C75", "cterm": "204", "cterm16": "1" }),
-      \ "dark_red": get(s:overrides, "dark_red", { "gui": "#BE5046", "cterm": "196", "cterm16": "9" }),
-      \ "green": get(s:overrides, "green", { "gui": "#98C379", "cterm": "114", "cterm16": "2" }),
-      \ "yellow": get(s:overrides, "yellow", { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" }),
-      \ "orange": get(s:overrides, "orange", { "gui": "#ffaf5f", "cterm": "215", "cterm16": "11" }),
-      \ "dark_orange": get(s:overrides, "dark_orange", { "gui": "#ff8700", "cterm": "208", "cterm16": "11" }),
-      \ "blue": get(s:overrides, "blue", { "gui": "#00a5ff", "cterm": "33", "cterm16": "4" }),
-      \ "purple": get(s:overrides, "purple", { "gui": "#d787d7", "cterm": "176", "cterm16": "5" }),
-      \ "cyan": get(s:overrides, "cyan", { "gui": "#5fafaf", "cterm": "73", "cterm16": "6" }),
-      \ "white": get(s:overrides, "white", { "gui": "#eeeeee", "cterm": "145", "cterm16": "15" }),
-      \ "black": get(s:overrides, "black", { "gui": "#282C34", "cterm": "235", "cterm16": "0" }),
-      \ "foreground": get(s:overrides, "foreground", { "gui": "#eeeeee", "cterm": "255", "cterm16": "NONE" }),
-      \ "background": get(s:overrides, "background", { "gui": "#303030", "cterm": "236", "cterm16": "NONE" }),
-      \ "charcoal": get(s:overrides, "charcoal", { "gui": "#a8a8a8", "cterm": "248", "cterm16": "7" }),
-      \ "golden_rod": get(s:overrides, "golden_rod", { "gui": "#ffd75f", "cterm": "221", "cterm16": "8" }),
-      \ "cursor_grey": get(s:overrides, "cursor_grey", { "gui": "#2C323C", "cterm": "236", "cterm16": "0" }),
-      \ "visual_grey": get(s:overrides, "visual_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "8" }),
-      \ "menu_grey": get(s:overrides, "menu_grey", { "gui": "#3E4452", "cterm": "237", "cterm16": "7" }),
-      \ "special_grey": get(s:overrides, "special_grey", { "gui": "#3B4048", "cterm": "238", "cterm16": "7" }),
-      \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#3E4452", "cterm": "59", "cterm16": "7" }),
+      \ "red": { "gui": "#E06C75", "cterm": "204", "cterm16": "1" },
+      \ "dark_red": { "gui": "#BE5046", "cterm": "196", "cterm16": "9" },
+      \ "green": { "gui": "#98C379", "cterm": "114", "cterm16": "2" },
+      \ "yellow": { "gui": "#E5C07B", "cterm": "180", "cterm16": "3" },
+      \ "orange": { "gui": "#ffaf5f", "cterm": "215", "cterm16": "11" },
+      \ "dark_orange": { "gui": "#ff8700", "cterm": "208", "cterm16": "11" },
+      \ "blue": { "gui": "#00a5ff", "cterm": "33", "cterm16": "4" },
+      \ "purple": { "gui": "#d787d7", "cterm": "176", "cterm16": "5" },
+      \ "cyan": { "gui": "#5fafaf", "cterm": "73", "cterm16": "6" },
+      \ "white": { "gui": "#eeeeee", "cterm": "145", "cterm16": "15" },
+      \ "black": { "gui": "#282C34", "cterm": "235", "cterm16": "0" },
+      \ "foreground": { "gui": "#eeeeee", "cterm": "255", "cterm16": "NONE" },
+      \ "background": { "gui": "#303030", "cterm": "236", "cterm16": "NONE" },
+      \ "charcoal": { "gui": "#a8a8a8", "cterm": "248", "cterm16": "7" },
+      \ "golden_rod": { "gui": "#ffd75f", "cterm": "221", "cterm16": "8" },
+      \ "cursor_grey": { "gui": "#2C323C", "cterm": "236", "cterm16": "0" },
+      \ "visual_grey": { "gui": "#3E4452", "cterm": "237", "cterm16": "8" },
+      \ "menu_grey": { "gui": "#3E4452", "cterm": "237", "cterm16": "7" },
+      \ "special_grey": { "gui": "#3B4048", "cterm": "238", "cterm16": "7" },
+      \ "vertsplit": { "gui": "#3E4452", "cterm": "59", "cterm16": "7" },
       \}
 
 let s:red = s:colors.red
