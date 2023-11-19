@@ -13,7 +13,7 @@ syn match pythonDot "\v[\.\:\,]"
 syn match pythonArrow " -> "
 
 syn match pythonArg "\v\zs\w+\ze\="
-syn match pythonAddlOperator "\v[\=\+\*\-\/\\\|]"
+syn match pythonAddlOperator "\v[\=\+\*\-\/\\\|\!]"
 
 syn match pythonParen "\v[\(\)\{\}\[\]]"
 

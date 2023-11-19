@@ -4,6 +4,7 @@ import spam as eggs
 THIS_IS_A_CONST_2 = "a"
 _THIS_IS_ANOTHER_CONST = "b"
 
+assert True != False
 
 class Foo:
     """
