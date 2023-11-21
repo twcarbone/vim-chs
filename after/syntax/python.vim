@@ -6,8 +6,8 @@ syn match pythonSelf "\v<self>"
 syn match pythonCls "\v<cls>"
 
 syn match pythonFStringF "\m\zs[frb]\ze\""
-syn match pythonFStringCurly "\v\zs\{\w+\}\ze" contained contains=pythonFStringInner
-syn match pythonFStringInner "\v\{\zs\w+\ze\}"
+syn match pythonFStringCurly "\v\zs\{.{-}\}\ze" contained contains=pythonFStringInner
+syn match pythonFStringInner "\v\{\zs.{-}\ze\}"
 
 syn match pythonDot "\v[\.\:\,]"
 syn match pythonArrow " -> "
